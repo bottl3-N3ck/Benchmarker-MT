@@ -22,7 +22,6 @@ thread tmain[100];
 void mainbase(int,int);
 void selection()
 {
-	
 		int choose;
 		unsigned concurentThreadsSupported = thread::hardware_concurrency();
 		cout << concurentThreadsSupported << " threads supported" << '\n';
@@ -153,11 +152,11 @@ int main()
 		cout << "Score in Part B:" << partscore[1]/5 << '\n';
 		cout << "Score in Part C:" << partscore[2]/5 << '\n';
 		// gives 0 for some reason
-		cout << "Your system has scored a total of " << totalscore << " points!" << '\n';
+		cout << "Your system has scored a total of " << (partscore[0] / 5 + partscore[1] / 5 + partscore[2] / 5)/3 << " points!" << '\n';
 		cout << '\n';
 			// kill all threads
-			tmain->detach();
-			delete tmain;
+		tmain->detach();
+		delete tmain;
 			// crashes with heap corruption message
 			_getch();
 			delete[] tmain;
